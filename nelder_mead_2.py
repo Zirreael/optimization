@@ -12,7 +12,6 @@ class Point:   # класс точка
     def __init__(self, point_array):    # конструктор
         self.coord = point_array
         self.dim = len(point_array)
-        #self.strfunc = function
         self.func = 0
     def __str__(self):
         return f'point: {self.coord}, func = {self.func:5.8f}'
