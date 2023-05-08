@@ -1,10 +1,5 @@
 ## -*- coding: utf-8 -*-
 
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
 
 import numpy as np
 
@@ -86,14 +81,10 @@ def nelder_mead(dim, iter_count, function):
         simplex.append(x)
     for j in range(iter_count):
         simplex.sort(key=lambda point: point.func)     # сортировка по значению
-        #print("\nsimplex:")
-        #for i in range(dim + 1):
-           # print(simplex[i].__str__())
         x_best = simplex[0]
         x_worst = simplex[dim]
         x_good = simplex[dim-1]
         x_centr = centr(simplex, dim)
-       # print("centr: ", x_centr.__str__())
         x_r = reflection(x_centr, x_worst, alfa)
         x_r.calc(function)
         if x_r.func < x_best.func:
@@ -123,9 +114,6 @@ def nelder_mead(dim, iter_count, function):
     print("answer: ", simplex[i].__str__())
     return simplex[i]
 
-# def main():
-#     function = "(1 - x) ** 2 + 100 * (y - x ** 2) ** 2"
-#     ans = nelder_mead(2, 50, function)
-    
-# main()
-# input()
+if __name__ == '__main__':
+     function = "(1 - x) ** 2 + 100 * (y - x ** 2) ** 2"
+     ans = nelder_mead(2, 50, function)
